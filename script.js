@@ -12,13 +12,6 @@ var game_on = true;
 // table variable holds an array of all the table rows
 var table = $('table tr');
 
-// used for testing - this is logged to the console
-function reportWin(rowNum, colNum) {
-    console.log("You won starting at this row, col");
-    console.log(rowNum);
-    console.log(colNum);
-}
-
 // find the row and column within the table using the input parameters
 // change the color of the space (represented as a button)
 function changeColor(rowIndex, colIndex, color) {
@@ -92,8 +85,8 @@ function diagonalCheck() {
 function gameOver(winningPlayer) {
     for (var col = 0; col < 7; col++) {
         for (var row = 0; row < 7; row++) {
-            $('h3').fadeOut('fast');
-            $('h1').text(winningPlayer + " has won! Refresh your browser to play again!").css("fontSize", "50px")
+            $('h4').fadeOut('fast');
+            $('h2').text(winningPlayer + " has won! Refresh your browser to play again!").css("fontSize", "50px")
         }
     }
 }
@@ -104,7 +97,7 @@ var currentName = player1;
 var currentColor = player1Color;
 
 // start with player one
-$('h3').text(player1 + ": it is your turn, please pick a column to drop your blue chip.");
+$('h4').text(player1 + ": it is your turn, please pick a column to drop your blue chip.");
 
 $('.board button').on('click', function() { 
 
@@ -128,11 +121,11 @@ $('.board button').on('click', function() {
     // check who the current player is.
     if(currentPlayer == 1) {
         currentName = player1;
-        $('h3').text(currentName + ": it is your turn, please pick a column to drop your blue chip.");
+        $('h4').text(currentName + ": it is your turn, please pick a column to drop your blue chip.");
         currentColor = player1Color;
     } else {
         currentName = player2;
-        $('h3').text(currentName + ": it is your turn, please pick a column to drop your red chip.");
+        $('h4').text(currentName + ": it is your turn, please pick a column to drop your red chip.");
         currentColor = player2Color;
     }
 });
