@@ -33,7 +33,7 @@ function returnColor(rowIndex, colIndex) {
 
 // check for the next empty space in a given column
 function checkBottom(colIndex) {
-    var colorReport;
+    var colorReport = returnColor(5, colIndex);
     
     for(var i = 5; i >= 0; i--) {
         colorReport = returnColor(i, colIndex);
@@ -52,10 +52,9 @@ function colorMatchCheck(one, two, three, four) {
 
 // check for hortizontal win
 function horizontalCheck() {
-    for(var col = 0; col < 6; col++) {
-        for(var row = 0; row < 4; row++) {
-            if(colorMatchCheck(returnColor(row, col) && returnColor(row, col + 1) && returnColor(row, col + 2) && returnColor(row, col + 3))) {
-                reportWin(row, col);
+    for(var col = 0; col < 4; col++) {
+        for(var row = 0; row < 6; row++) {
+            if(colorMatchCheck(returnColor(row, col), returnColor(row, col + 1), returnColor(row, col + 2), returnColor(row, col + 3))) {
                 return true;
             }
         }
@@ -67,8 +66,7 @@ function horizontalCheck() {
 function verticalCheck() {
     for(var col = 0; col < 6; col++) {
         for(var row = 0; row < 4; row++) {
-            if(colorMatchCheck(returnColor(row, col)) && returnColor(row + 1, col) && returnColor(row + 2, col) && returnColor(row + 3, col)) {
-                reportWin(row, col);
+            if(colorMatchCheck(returnColor(row, col), returnColor(row + 1, col), returnColor(row + 2, col), returnColor(row + 3, col))) {
                 return true;
             }
         }
@@ -81,10 +79,8 @@ function diagonalCheck() {
     for(var col = 0; col < 5; col++) {
         for(var row = 0; row < 7; row++) {
             if(colorMatchCheck(returnColor(row, col), returnColor(row + 1, col + 1), returnColor(row + 2, col + 2), returnColor(row + 3, col + 3))) {
-                reportWin(row,col);
                 return true;
             } else if(colorMatchCheck(returnColor(row,col), returnColor(row-1,col+1) ,returnColor(row-2,col+2), returnColor(row-3,col+3))) {
-                reportWin(row, col);
                 return true;
             }
         }
@@ -123,7 +119,7 @@ $('.board button').on('click', function() {
 
     // check for a win or a tie
     if(horizontalCheck() || verticalCheck() || diagonalCheck()) {
-        gameEnd(currentName);
+        gameOver(currentName);
     }
 
     // if no win or tie, continue to next player
