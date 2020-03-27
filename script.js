@@ -67,7 +67,7 @@ function horizontalCheck() {
 function verticalCheck() {
     for(var col = 0; col < 6; col++) {
         for(var row = 0; row < 4; row++) {
-            if(colorMatchCheck(returnColor(row, col)) && colorMatchCheck(returnColor(row + 1, col )) && colorMatchCheck(row + 2, col) && colorMatchCheck(row + 3, col)) {
+            if(colorMatchCheck(returnColor(row, col)) && returnColor(row + 1, col) && returnColor(row + 2, col) && returnColor(row + 3, col)) {
                 // reportWin(row, col);
                 return true;
             }
@@ -75,3 +75,22 @@ function verticalCheck() {
     }
     return false;
 }
+
+// check for diagonal wins
+function diagonalCheck() {
+    for (var col = 0; col < 5; col++) {
+      for (var row = 0; row < 7; row++) {
+        if (colorMatchCheck(returnColor(row,col), returnColor(row+1,col+1) ,returnColor(row+2,col+2), returnColor(row+3,col+3))) {
+          console.log('diag');
+          reportWin(row,col);
+          return true;
+        }else if (colorMatchCheck(returnColor(row,col), returnColor(row-1,col+1) ,returnColor(row-2,col+2), returnColor(row-3,col+3))) {
+          console.log('diag');
+          reportWin(row,col);
+          return true;
+        }else {
+          continue;
+        }
+      }
+    }
+  }
