@@ -8,6 +8,7 @@ var player2Color = 'rgb(237, 45, 73)';
 
 // used to determine if the game is being played
 var game_on = true;
+var started = false;
 
 // table variable holds an array of all the table rows
 var table = $('table tr');
@@ -83,8 +84,8 @@ function diagonalCheck() {
 
 // game over
 function gameOver(winningPlayer) {
-    $('h4').fadeOut('fast');
-    $('h2').text(winningPlayer + " has won! Refresh your browser to play again!");
+    $('h2').text(winningPlayer + " is the winner!");
+    $('h4').text("Refresh your browser to play again.")
     game_on = false;
 }
 
@@ -114,19 +115,22 @@ $('#board button').on('click', function() {
     // check for a win or a tie
     if(horizontalCheck() || verticalCheck() || diagonalCheck()) {
         gameOver(currentName);
-    }
-
-    // if no win or tie, continue to next player
-    currentPlayer = currentPlayer * -1;
-
-    // check who the current player is.
-    if(currentPlayer == 1) {
-        currentName = player1;
-        $('h4').text(currentName + ": it is your turn, please pick a column to drop your blue chip.");
-        currentColor = player1Color;
     } else {
-        currentName = player2;
-        $('h4').text(currentName + ": it is your turn, please pick a column to drop your red chip.");
-        currentColor = player2Color;
+        // if no win or tie, continue to next player
+        currentPlayer = currentPlayer * -1;
+
+        // check who the current player is.
+        if(currentPlayer == 1) {
+            currentName = player1;
+            $('h2').text("It is " + currentName + "'s turn!");
+            $('h4').text("Pick a column to drop your blue chip.");
+            currentColor = player1Color;
+        } else {
+            currentName = player2;
+            $('h2').text("It is " + currentName + "'s turn!");
+            $('h4').text("Pick a column to drop your red chip.");
+            currentColor = player2Color;
+        }
     }
+
 });
