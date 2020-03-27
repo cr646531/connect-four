@@ -6,6 +6,10 @@
     padding-bottom: 30px;
 }
 
+#start-button {
+    padding-bottom: 50px;
+}
+
 #board {
     display: none;
 }
