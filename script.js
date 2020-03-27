@@ -50,14 +50,28 @@ function colorMatchCheck(one, two, three, four) {
     return (one == two && one == three && one == four && one !== 'rgb(128, 128, 128)' && one !== undefined);
 }
 
-// check for hortizontal wins
+// check for hortizontal win
 function horizontalCheck() {
     for(var col = 0; col < 6; col++) {
         for(var row = 0; row < 4; row++) {
-            if(colorMatchCheck(returnColor(row, col) && returnColor(row + 1, col) && returnColor(row + 2, col) && returnColor(row + 3, col))) {
+            if(colorMatchCheck(returnColor(row, col) && returnColor(row, col + 1) && returnColor(row, col + 2) && returnColor(row, col + 3))) {
                 // reportWin(row, col);
                 return true;
             }
         }
     }
+    return false;
+}
+
+// check for vertical wins
+function verticalCheck() {
+    for(var col = 0; col < 6; col++) {
+        for(var row = 0; row < 4; row++) {
+            if(colorMatchCheck(returnColor(row, col)) && colorMatchCheck(returnColor(row + 1, col )) && colorMatchCheck(row + 2, col) && colorMatchCheck(row + 3, col)) {
+                // reportWin(row, col);
+                return true;
+            }
+        }
+    }
+    return false;
 }
