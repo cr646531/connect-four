@@ -70,8 +70,8 @@ function diagonalCheck() {
 
 // display the "gave over" text
 function gameOver(winningPlayer) {
-    $('h2').text(winningPlayer + " is the winner!");
-    $('h4').text("Refresh your browser to play again.")
+    $('h1').text(winningPlayer + " is the winner!");
+    $('h3').text("Refresh your browser to play again.")
     game_on = false;
 }
 
@@ -147,13 +147,13 @@ $('#board button').on('click', function() {
         // check who the current player is and display the applicable text
         if(currentPlayer == 1) {
             currentName = player1;
-            $('h2').text("It is " + currentName + "'s turn!");
-            $('h4').text("Pick a column to drop your blue chip.");
+            $('h1').text("It is " + currentName + "'s turn!");
+            $('h3').text("Pick a column to drop your blue chip.");
             currentColor = player1Color;
         } else {
             currentName = player2;
-            $('h2').text("It is " + currentName + "'s turn!");
-            $('h4').text("Pick a column to drop your red chip.");
+            $('h1').text("It is " + currentName + "'s turn!");
+            $('h3').text("Pick a column to drop your red chip.");
             currentColor = player2Color;
         }
     }
