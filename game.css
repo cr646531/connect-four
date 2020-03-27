@@ -1,3 +1,11 @@
+body {
+    background-image: url('background.jpg');
+}
+
+body::after {
+    opacity: 0.2;
+}
+
 #welcome {
     padding: 20px;
     color: black;
