@@ -23,10 +23,18 @@ td {
     padding: 5px;
 }
 
+hr.break {
+    margin-top: 40px;
+    margin-bottom: 50px;
+    border: 1px solid black;
+    display: none;
+}
+
 #bottom-text {
     padding-top: 50px;
     padding-left: 200px;
     padding-right: 200px;
+    margin-bottom: 20px;
 }
 
 #bottom-text h5 {

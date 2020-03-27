@@ -104,6 +104,7 @@ $('#start-button').on('click', function() {
     // hide the start button and display the board
     $('#start-button').hide('slow');
     $('#board').toggle();
+    $('hr.break').toggle();
 
     // prompt Player 1
     player1 = prompt("Player One: Enter Your Name , you will be Blue");
