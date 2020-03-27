@@ -43,3 +43,9 @@ function checkBottom(colIndex) {
         }
     }
 }
+
+// given four spaces, check whether all four spaces have the same color
+// make sure all four spaces are within the bounds of the board and are not empty spaces
+function colorMatchCheck(one, two, three, four) {
+    return (one == two && one == three && one == four && one !== 'rgb(128, 128, 128)' && one !== undefined);
+}
