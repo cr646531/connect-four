@@ -97,7 +97,6 @@ function gameOver(winningPlayer) {
     for (var col = 0; col < 7; col++) {
         for (var row = 0; row < 7; row++) {
             $('h3').fadeOut('fast');
-            $('h2').fadeOut('fast');
             $('h1').text(winningPlayer + " has won! Refresh your browser to play again!").css("fontSize", "50px")
         }
     }
@@ -108,8 +107,8 @@ var currentPlayer = 1;
 var currentName = player1;
 var currentColor = player1Color;
 
-// start with Player One
-$('h3').text(player1+": it is your turn, please pick a column to drop your blue chip.");
+// start with player one
+$('h3').text(player1 + ": it is your turn, please pick a column to drop your blue chip.");
 
 $('.board button').on('click', function(){
 
@@ -123,14 +122,14 @@ $('.board button').on('click', function(){
     changeColor(bottomAvail, col, currentColor);
 
     // check for a win or a tie
-    if(horizontalWinCheck() || verticalWinCheck() || diagonalWinCheck()) {
+    if(horizontalCheck() || verticalCheck() || diagonalCheck()) {
         gameEnd(currentName);
     }
 
-    // If no win or tie, continue to next player
+    // if no win or tie, continue to next player
     currentPlayer = currentPlayer * -1;
 
-    // Re-Check who the current Player is.
+    // check who the current player is.
     if(currentPlayer == 1) {
         currentName = player1;
         $('h3').text(currentName + ": it is your turn, please pick a column to drop your blue chip.");
