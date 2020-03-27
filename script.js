@@ -83,12 +83,9 @@ function diagonalCheck() {
 
 // game over
 function gameOver(winningPlayer) {
-    for (var col = 0; col < 7; col++) {
-        for (var row = 0; row < 7; row++) {
-            $('h4').fadeOut('fast');
-            $('h2').text(winningPlayer + " has won! Refresh your browser to play again!").css("fontSize", "50px")
-        }
-    }
+    $('h4').fadeOut('fast');
+    $('h2').text(winningPlayer + " has won! Refresh your browser to play again!");
+    game_on = false;
 }
 
 // begin the game with player one
@@ -100,6 +97,10 @@ var currentColor = player1Color;
 $('h4').text(player1 + ": it is your turn, please pick a column to drop your blue chip.");
 
 $('.board button').on('click', function() { 
+
+    if(!game_on) {
+        return 0;
+    }
 
     // store the column chosen in a variable
     var col = $(this).closest("td").index();
