@@ -2,13 +2,12 @@ body {
     background-image: url('background.jpg');
 }
 
-body::after {
-    opacity: 0.2;
-}
-
 #welcome {
     padding: 20px;
     color: black;
+    font-weight: bold;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
 }
 
 #welcome-subtext {
@@ -49,5 +48,10 @@ hr.break {
 
 #bottom-text h5 {
     font-weight: bold;
+    color: black;
+}
+
+#bottom-text p {
+    color: black;
 }
 
