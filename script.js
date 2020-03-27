@@ -1,14 +1,5 @@
-// prompt Player 1
-var player1 = prompt("Player One: Enter Your Name , you will be Blue");
-var player1Color = 'rgb(86, 151, 255)';
-
-// prompt Player 2
-var player2 = prompt("Player Two: Enter Your Name, you will be Red");
-var player2Color = 'rgb(237, 45, 73)';
-
 // used to determine if the game is being played
 var game_on = true;
-var started = false;
 
 // table variable holds an array of all the table rows
 var table = $('table tr');
@@ -89,13 +80,35 @@ function gameOver(winningPlayer) {
     game_on = false;
 }
 
-// begin the game with player one
-var currentPlayer = 1;
-var currentName = player1;
-var currentColor = player1Color;
+// player variables
+var player1;
+var player1Color;
+var player2;
+var player2Color;
+var currentPlayer;
+var currentName;
+var currentColor;
 
-// start with player one
-$('h4').text(player1 + ": it is your turn, please pick a column to drop your blue chip.");
+// click on the button to begin the game
+$('#start-button').on('click', function() {
+
+    // hide the start button and display the board
+    $('#start-button').hide('slow');
+    $('#board').toggle();
+
+    // prompt Player 1
+    player1 = prompt("Player One: Enter Your Name , you will be Blue");
+    player1Color = 'rgb(86, 151, 255)';
+
+    // prompt Player 2
+    player2 = prompt("Player Two: Enter Your Name, you will be Red");
+    player2Color = 'rgb(237, 45, 73)';
+
+    // begin the game with player one
+    currentPlayer = 1;
+    currentName = player1;
+    currentColor = player1Color;
+});
 
 $('#board button').on('click', function() { 
 
