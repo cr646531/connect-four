@@ -3,7 +3,7 @@
 }
 
 #welcome-subtext {
-    padding-bottom: 20px;
+    padding-bottom: 30px;
 }
 
 #board {
@@ -11,8 +11,8 @@
 }
 
 #board button {
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
     background-color: gray;
     margin: 1px;
     border: 2px solid black;
@@ -22,3 +22,4 @@
 td {
     padding: 5px;
 }
+
