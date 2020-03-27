@@ -14,7 +14,7 @@ var table = $('table tr');
 
 // used for testing - this is logged to the console
 function reportWin(rowNum, colNum) {
-    console.log("You won starting at this row,col");
+    console.log("You won starting at this row, col");
     console.log(rowNum);
     console.log(colNum);
 }
@@ -35,7 +35,7 @@ function returnColor(rowIndex, colIndex) {
 function checkBottom(colIndex) {
     var colorReport;
     
-    for(var i = 5; i <= 0; i--) {
+    for(var i = 5; i >= 0; i--) {
         colorReport = returnColor(i, colIndex);
 
         if(colorReport === 'rgb(128, 128, 128)') {
@@ -110,7 +110,7 @@ var currentColor = player1Color;
 // start with player one
 $('h3').text(player1 + ": it is your turn, please pick a column to drop your blue chip.");
 
-$('.board button').on('click', function(){
+$('.board button').on('click', function() { 
 
     // store the column chosen in a variable
     var col = $(this).closest("td").index();
