@@ -6,10 +6,6 @@
     padding-bottom: 30px;
 }
 
-#start-button {
-    padding-bottom: 50px;
-}
-
 #board {
     display: none;
 }
@@ -25,5 +21,15 @@
 
 td {
     padding: 5px;
+}
+
+#bottom-text {
+    padding-top: 50px;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+#bottom-text h5 {
+    font-weight: bold;
 }
 
