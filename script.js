@@ -96,7 +96,7 @@ var currentColor = player1Color;
 // start with player one
 $('h4').text(player1 + ": it is your turn, please pick a column to drop your blue chip.");
 
-$('.board button').on('click', function() { 
+$('#board button').on('click', function() { 
 
     if(!game_on) {
         return 0;
