@@ -25,10 +25,13 @@ function changeColor(rowIndex, colIndex, color) {
     return table.eq(rowIndex).find('td').eq(colIndex).find('button').css('background-color', color);
 }
 
+// find the row and column within the table using the input parameters
+// return the color of the space (represented as a button)
 function returnColor(rowIndex, colIndex) {
     return table.eq(rowIndex).find('td').eq(colIndex).find('button').css('background-color');
 }
 
+// check for the next empty space in a given column
 function checkBottom(colIndex) {
     var colorReport;
     
