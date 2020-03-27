@@ -19,9 +19,24 @@ function reportWin(rowNum, colNum) {
     console.log(colNum);
 }
 
-// find the row within the table using the rowIndex parameter
-// find the column within the table using the colIndex parameter
+// find the row and column within the table using the input parameters
 // change the color of the space (represented as a button)
 function changeColor(rowIndex, colIndex, color) {
     return table.eq(rowIndex).find('td').eq(colIndex).find('button').css('background-color', color);
+}
+
+function returnColor(rowIndex, colIndex) {
+    return table.eq(rowIndex).find('td').eq(colIndex).find('button').css('background-color');
+}
+
+function checkBottom(colIndex) {
+    var colorReport;
+    
+    for(var i = 5; i <= 0; i--) {
+        colorReport = returnColor(i, colIndex);
+
+        if(colorReport === 'rgb(128, 128, 128)') {
+            return i;
+        }
+    }
 }
