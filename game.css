@@ -1,0 +1,16 @@
+#welcome {
+    padding-top: 20px;
+}
+
+#welcome-subtext {
+    padding: 20px;
+}
+
+.board button{
+    width: 100px;
+    height: 100px;
+    background-color: gray;
+    margin: 1px;
+    border: 4px solid black;
+    border-radius: 50%;
+}
