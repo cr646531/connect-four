@@ -49,3 +49,15 @@ function checkBottom(colIndex) {
 function colorMatchCheck(one, two, three, four) {
     return (one == two && one == three && one == four && one !== 'rgb(128, 128, 128)' && one !== undefined);
 }
+
+// check for hortizontal wins
+function horizontalCheck() {
+    for(var col = 0; col < 6; col++) {
+        for(var row = 0; row < 4; row++) {
+            if(colorMatchCheck(returnColor(row, col) && returnColor(row + 1, col) && returnColor(row + 2, col) && returnColor(row + 3, col))) {
+                // reportWin(row, col);
+                return true;
+            }
+        }
+    }
+}
