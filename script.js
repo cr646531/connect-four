@@ -1,22 +1,17 @@
-// used to determine if the game is being played
-var game_on = true;
 
-// table variable holds an array of all the table rows
-var table = $('table tr');
+/* ------------------------------ FUNCTIONS ------------------------------ */
 
-// find the row and column within the table using the input parameters
-// change the color of the space (represented as a button)
+// change the color the given space
 function changeColor(rowIndex, colIndex, color) {
     return table.eq(rowIndex).find('td').eq(colIndex).find('button').css('background-color', color);
 }
 
-// find the row and column within the table using the input parameters
-// return the color of the space (represented as a button)
+// return the color of the given space
 function returnColor(rowIndex, colIndex) {
     return table.eq(rowIndex).find('td').eq(colIndex).find('button').css('background-color');
 }
 
-// check for the next empty space in a given column
+// check for the bottom-most empty space in a given column
 function checkBottom(colIndex) {
     var colorReport = returnColor(5, colIndex);
     
@@ -30,7 +25,7 @@ function checkBottom(colIndex) {
 }
 
 // given four spaces, check whether all four spaces have the same color
-// make sure all four spaces are within the bounds of the board and are not empty spaces
+// make sure all four spaces are within the bounds of the board and are not empty
 function colorMatchCheck(one, two, three, four) {
     return (one == two && one == three && one == four && one !== 'rgb(128, 128, 128)' && one !== undefined);
 }
@@ -73,21 +68,35 @@ function diagonalCheck() {
     return false;
 }
 
-// game over
+// display the "gave over" text
 function gameOver(winningPlayer) {
     $('h2').text(winningPlayer + " is the winner!");
     $('h4').text("Refresh your browser to play again.")
     game_on = false;
 }
 
-// player variables
+
+/* ------------------------------ GLOBAL VARIABLES ------------------------------ */
+
+// player variables for name and color
 var player1;
 var player1Color;
 var player2;
 var player2Color;
+
+// current variables for which player makes the next move
 var currentPlayer;
 var currentName;
 var currentColor;
+
+// used to determine if the game is being played
+var game_on = true;
+
+// table variable holds an array of all the table rows
+var table = $('table tr');
+
+
+/* ------------------------------ EVENT HANDLERS ------------------------------ */
 
 // click on the button to begin the game
 $('#start-button').on('click', function() {
@@ -110,8 +119,10 @@ $('#start-button').on('click', function() {
     currentColor = player1Color;
 });
 
+// click on a space within the board to make the next move
 $('#board button').on('click', function() { 
 
+    // prevents the players from making any more moves when the game has ended
     if(!game_on) {
         return 0;
     }
@@ -119,20 +130,21 @@ $('#board button').on('click', function() {
     // store the column chosen in a variable
     var col = $(this).closest("td").index();
 
-    // store the bottom empty space in the given column
+    // store the bottom empty space in the column chosen
     var bottomAvail = checkBottom(col);
 
-    // drop the chip in that column at the bottomAvail row
+    // drop the chip in the bottom-most available space of the chosen column
     changeColor(bottomAvail, col, currentColor);
 
     // check for a win or a tie
     if(horizontalCheck() || verticalCheck() || diagonalCheck()) {
+        // trigger the game over function
         gameOver(currentName);
     } else {
-        // if no win or tie, continue to next player
+        // if there is no win or tie, continue to next player
         currentPlayer = currentPlayer * -1;
 
-        // check who the current player is.
+        // check who the current player is and display the applicable text
         if(currentPlayer == 1) {
             currentName = player1;
             $('h2').text("It is " + currentName + "'s turn!");
