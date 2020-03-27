@@ -118,6 +118,10 @@ $('#start-button').on('click', function() {
     currentPlayer = 1;
     currentName = player1;
     currentColor = player1Color;
+
+    $('h1').text("It is " + currentName + "'s turn!").css('color', 'rgb(86, 151, 255)');
+
+    $('h3').text("Pick a column to drop your blue chip.");
 });
 
 // click on a space within the board to make the next move
@@ -148,12 +152,12 @@ $('#board button').on('click', function() {
         // check who the current player is and display the applicable text
         if(currentPlayer == 1) {
             currentName = player1;
-            $('h1').text("It is " + currentName + "'s turn!");
+            $('h1').text("It is " + currentName + "'s turn!").css('color', 'rgb(86, 151, 255)');
             $('h3').text("Pick a column to drop your blue chip.");
             currentColor = player1Color;
         } else {
             currentName = player2;
-            $('h1').text("It is " + currentName + "'s turn!");
+            $('h1').text("It is " + currentName + "'s turn!").css('color', 'rgb(237, 45, 73)');
             $('h3').text("Pick a column to drop your red chip.");
             currentColor = player2Color;
         }

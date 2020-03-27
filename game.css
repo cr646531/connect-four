@@ -1,9 +1,11 @@
 #welcome {
     padding: 20px;
+    color: black;
 }
 
 #welcome-subtext {
     padding-bottom: 30px;
+    color: black;
 }
 
 #board {
